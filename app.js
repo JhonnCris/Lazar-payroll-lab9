@@ -35,22 +35,20 @@ button.addEventListener('click', function(event) {
     row.insertCell(5).innerHTML = otherDed.toFixed(2);
     row.insertCell(6).innerHTML = grossPay.toFixed(2);
     row.insertCell(7).innerHTML = netPay.toFixed(2);
+    let actionCell = row.insertCell(8);
 
-    let deleteCell = row.insertCell(8);
     let delBtn = document.createElement('button');
     delBtn.innerHTML = 'Delete';
     delBtn.className = 'third';
+    delBtn.style.marginLeft = '5px';
     delBtn.onclick = function() {
         tbody.deleteRow(row.rowIndex - 1);
     };
-    deleteCell.appendChild(delBtn);
     updateSummary();
 
-    let editCell = row.insertCell(8);
     let editBtn = document.createElement('button');
     editBtn.innerHTML = 'Edit';
     editBtn.className = 'third';
-    editBtn.style.marginLeft = '5px';
     editBtn.onclick = function() {
         nameInput.value = row.cells[1].innerHTML;
         hoursInput.value = row.cells[2].innerHTML;
@@ -59,10 +57,15 @@ button.addEventListener('click', function(event) {
         deductionsInput.value = row.cells[5].innerHTML;
         tbody.deleteRow(row.rowIndex - 1);
     }
-    editCell.appendChild(editBtn);
     updateSummary();
 
+    actionCell.appendChild(editBtn);
+    actionCell.appendChild(delBtn);
+
+  
 });
+ 
+
 
 resetBtn.addEventListener('click', function() {
     nameInput.value = '';

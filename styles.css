@@ -9,7 +9,8 @@
   --ok:#7cff9b;
   --radius:16px;
 }
-*{box-sizing: content-box}
+*{box-sizing: border-box;}
+
 body{
   margin:0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
